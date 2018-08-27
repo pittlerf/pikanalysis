@@ -1,7 +1,7 @@
 require(dplyr)
 boot.R <- 2000
 boot_sim <- "geom"
-useCov <- TRUE
+#useCov <- TRUE
 
 
 coshfit <-function(t,T,par){
@@ -84,7 +84,7 @@ initkaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]]  <- list(
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]][[make.musstr(0.01850)]]  <- list(444.731,0.2294)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]][[make.musstr(0.02250)]]  <- list(420.781,0.249)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]][[make.musstr(0.02464)]]  <- list(414.68, 0.26)
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]] <- c(7,14,33)
 
 fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]] <- list()
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]] <- list()
@@ -92,13 +92,13 @@ initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]]  <- list(
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]][[make.musstr(0.01850)]]  <- list(229.683,0.237)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]][[make.musstr(0.02250)]]  <- list(218.344,0.256)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]][[make.musstr(0.02464)]]  <- list(214.728,0.266)
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]] <- c(5,12,25)
 
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]]  <- list()
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]][[make.musstr(0.01850)]]  <- list(452.342,0.234)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]][[make.musstr(0.02250)]]  <- list(432.802,0.254)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]][[make.musstr(0.02464)]]  <- list(422.892,0.264)
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]] <- c(7,14,33)
 
 fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]] <- list()
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]] <- list()
@@ -106,7 +106,7 @@ initkaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]]  <- list(
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]][[make.musstr(0.01850)]]  <- list(233.692,0.245)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]][[make.musstr(0.02250)]]  <- list(225.13,0.264)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]][[make.musstr(0.02464)]]  <- list(220.479,0.274)
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]] <- c(5,12,25)
 
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]] <- list()
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]]  <- list()
@@ -114,7 +114,7 @@ initkaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]][[make.mus
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]][[make.musstr(0.02250)]]  <- list(229.089,0.273)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]][[make.musstr(0.02464)]]  <- list(226.5,0.283)
 fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]] <- list()
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]] <- c(5,12,25)
 
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]] <- list()
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]]  <- list()
@@ -122,7 +122,7 @@ initkaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]][[make.mus
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]][[make.musstr(0.02250)]]  <- list(231.688,0.282)
 initkaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]][[make.musstr(0.02464)]]  <- list(229.568,0.292)
 fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]] <- list()
-fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangekaon[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]] <- c(5,12,25)
 
 
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]] <- list()
@@ -131,7 +131,7 @@ initkaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]][[make.mus
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]][[make.musstr(0.0186)]]  <- list(377.269,0.219)
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]][[make.musstr(0.0210)]]  <- list(367.29,0.23)
 fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]] <- list()
-fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]] <- c(7,14,33)
 
 
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]] <- list()
@@ -140,11 +140,11 @@ initkaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]][[make.mus
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]][[make.musstr(0.0186)]]  <- list(383.741,0.228)
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]][[make.musstr(0.0210)]]  <- list(375.208,0.239)
 fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]] <- list()
-fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]] <- c(7,14,33)
 
 
 fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]] <- list()
-fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangekaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]] <- c(5,12,25)
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]] <- list()
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]]  <- list()
 initkaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]][[make.musstr(0.0160)]]  <- list(196.454,0.232)
@@ -153,7 +153,7 @@ initkaon[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]][[make.mus
 
 
 fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]] <- list()
-fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]] <- c(10,22,38)
+fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]] <- c(10,23,49)
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]] <- list()
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]]  <- list()
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]][[make.musstr(0.0115)]]  <- list(728.802229,0.150299)
@@ -162,7 +162,7 @@ initkaon[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]][[make.mus
 
 
 fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]] <- list()
-fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]] <- c( 7,14,32)
+fitrangekaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]] <- c( 7,15,33)
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]] <- list()
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]]  <- list()
 initkaon[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]][[make.musstr(0.0130)]]  <- list(223.127,0.166)
@@ -283,50 +283,50 @@ initpion[[make.betastr(2.10)]] <- list()
 
 fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0030)]] <- list()
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0030)]] <- list()
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0030)]][[make.Lstr(32)]] <- c(7,14,33)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0030)]] [[make.Lstr(32)]] <- c(679.896,0.12288084)
 
 fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0040)]] <- list()
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0040)]] <- list()
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]] <- c(5,12,25)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(24)]] <- c(316.434,0.14176206)
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]] <- c(7,14,33)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0040)]][[make.Lstr(32)]] <- c(629,0.14088490)
 fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0060)]] <- list()
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0060)]] <- list()
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]] <- c(5,12,25)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0060)]][[make.Lstr(24)]] <- c(280,0.17128913)
 
 
 fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0080)]] <- list()
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0080)]] <- list()
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]] <- c(5,12,25)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0080)]][[make.Lstr(24)]] <- c(271,0.19820657)
 fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0100)]] <- list()
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0100)]] <- list()
-fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangepion[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]] <- c(5,12,25)
 initpion[[make.betastr(1.90)]][[make.mulstr(0.0100)]][[make.Lstr(24)]] <- c(260.03,0.22149677)
 
 fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0035)]] <- list()
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0035)]] <- list()
-fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]] <- c(7,14,33)
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0035)]][[make.Lstr(32)]] <- c(539.83,0.12404299)
 fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0055)]] <- list()
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0055)]] <- list()
-fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]] <- c(7,13,32)
+fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]] <- c(7,14,33)
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0055)]][[make.Lstr(32)]] <- c(477.74,0.15501990)
 fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0085)]] <- list()
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0085)]] <- list()
-fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]] <- c(5,11,24)
+fitrangepion[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]] <- c(5,12,25)
 initpion[[make.betastr(1.95)]][[make.mulstr(0.0085)]][[make.Lstr(24)]] <- c(212.355,0.19165412)
 
 fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0030)]] <- list()
 initpion[[make.betastr(2.10)]][[make.mulstr(0.0030)]] <- list()
-fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]] <- c(10,22,38)
+fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]] <- c(10,23,49)
 initpion[[make.betastr(2.10)]][[make.mulstr(0.0030)]][[make.Lstr(48)]] <- c(967.3504,0.09737293)
 initpion[[make.betastr(2.10)]][[make.mulstr(0.0045)]] <- list()
 fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0045)]] <- list()
-fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]] <- c( 7,14,32)
+fitrangepion[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]] <- c( 7,15,33)
 initpion[[make.betastr(2.10)]][[make.mulstr(0.0045)]][[make.Lstr(32)]] <- c(272.438,0.12010091)
 
 

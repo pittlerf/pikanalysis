@@ -1,6 +1,9 @@
 make.betastr <- function(beta){
   sprintf("beta%.2f",beta)
 }
+make.covstr <- function(useCov){
+  sprintf("cov%d",useCov)
+}
 make.mulstr <- function(mul){
   # the ceiling ensures that the conversion takes place correctly, otherwise
   # as.integer converts 10^4*0.0321 to 320, for example...
