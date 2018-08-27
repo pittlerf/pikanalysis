@@ -4,6 +4,13 @@ require(hadron)
 source("framework/utils.R")
 source("framework/parameters.R")
 
+#Fitting the pion two point correlation function using a simple cosh
+#
+#Opening the ascii datafiles containing the correlation functions
+#We analyze the correlation functions in the following order
+#1; Different lattice spacings A,B,D
+#2; Different light quark mass 0.003,0.004 ....
+#3; Different volumes 24,32,48
 obslist <- list()
 for (beta in betas){
   betastr <- make.betastr(beta)
@@ -17,10 +24,10 @@ for (beta in betas){
       if( any(class(new) == "try-error" ) ) {
        next
       }
-      tikzfiles <- tikz.init(sprintf("quick_analysis%s%03d_%d",latticelist[[match(beta,betas)]],mul*10000,L), width=4.5, height=4.5)
 
-      str(new)     
- 
+#For each ensemble we create a plot contining the fit results for all fitranges considered
+      tikzfiles <- tikz.init(sprintf("quick_analysispion%s%03d_%d",latticelist[[match(beta,betas)]],mul*10000,L), width=4.5, height=4.5)
+      
       tmin <- fitrangepion[[betastr]][[mulstr]][[Lstr]][2]
       tmax <- fitrangepion[[betastr]][[mulstr]][[Lstr]][3]
       lmin <- fitrangepion[[betastr]][[mulstr]][[Lstr]][1]
@@ -134,8 +141,8 @@ for (beta in betas){
           efmassfit <- fit.effectivemass(
                  cf=bootstrap.effectivemass(cf=newb,
                                             type='solve'),
-                                            t1=t1,
-                                            t2=t2,
+                                            t1=t1-1,
+                                            t2=t2-1,
                                             useCov=useCov
              )
           m_eff <- efmassfit$effmassfit
@@ -143,7 +150,7 @@ for (beta in betas){
           plot(efmassfit,
             ylab="$a M_\\pi^\\mathrm{eff}(t)$",
             xlab="$t/a$",
-            main=sprintf("$\\beta %1.2f~a \\mu_l = %.4f~L=%d~Cov=%d~t_1=%d~t_2=%d$", beta,as.numeric(mul),L,useCov,t1,t2),
+            main=sprintf("$\\beta %1.2f~a \\mu_l = %.4f~L=%d~Cov=%d~t_1=%d~t_2=%d$", beta,as.numeric(mul),L,useCov,t1-1,t2-1),
             ylim=c(m_eff$t0[1]-5*m_eff$se,m_eff$t0[1]+5*m_eff$se))
           legend(x="bottomleft",
             bty='n',
@@ -174,8 +181,8 @@ for (beta in betas){
           pcol <- col2rgb("blue", alpha = TRUE)/255
           pcol[4] <- 0.35
           pcol <- rgb(red = pcol[1], green = pcol[2], blue = pcol[3], alpha = pcol[4])
-          rect(xleft=t1,
-               xright=t2,
+          rect(xleft=t1-1,
+               xright=t2-1,
                ybottom=fitresultsrange[x]-fitresultserr[x],
                ytop=fitresultsrange[x]+fitresultserr[x],
                col=pcol,
@@ -201,15 +208,17 @@ for (beta in betas){
           )
 
           err<-NULL
-          for (t in tmin:tmax){ temp<-lapply(X=1:2000,FUN=function(rw_idx){newb$cf.tsboot$t[rw_idx,t]/coshfit(t-1,2*L,c(fitresultsbs1[rw_idx,x],fitresultsbs[rw_idx,x]))});temp2 <-do.call(rbind, temp);err<-rbind(err,sd(as.vector(temp2)))}
+#Determining the ration of the correlation function data and the fitted correlation function
+          for (t in tmin:tmax){ temp<-lapply(X=1:boot.R,FUN=function(rw_idx){newb$cf.tsboot$t[rw_idx,t]/coshfit(t-1,2*L,c(fitresultsbs1[rw_idx,x],fitresultsbs[rw_idx,x]))});temp2 <-do.call(rbind, temp);err<-rbind(err,sd(as.vector(temp2)))}
 
 
-          plotwitherror(x = tmin:tmax,
+#Do the plotting
+          plotwitherror(x = (tmin-1):(tmax-1),
                         y = newb$cf.tsboot$t0[tmin:tmax]/coshfit((tmin-1):(tmax-1),2*L,c(fitresultsrange1[x],fitresultsrange[x])),
                         dy = err,
                         ylab = "C(t)/f(t)",
                         xlab="$t/a$",
-                        main=sprintf("$Weight=%4f~t_1=%d~t_2=%d$", normalizedweight[x],t1,t2)
+                        main=sprintf("$Weight=%4f~t_1=%d~t_2=%d$", normalizedweight[x],t1-1,t2-1)
                    )
           pcol <- col2rgb("red", alpha = TRUE)/255
           pcol[4] <- 0.35
